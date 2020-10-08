@@ -24,6 +24,7 @@ function findSteps(id) {
 return db("steps")
 .join("schemes", "schemes.id", "=", "steps.scheme_id")
 .select("schemes.scheme_name", "steps.instructions", "steps.step_number")
+.where("schemes.id", id)
 .groupBy("schemes.scheme_name", "steps.step_number")
 }
 
